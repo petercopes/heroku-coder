@@ -1,2 +1,17 @@
 server:
-  port: ${PORT:5000}
+  port: ${PORT:8082}
+spring:
+     application:
+       name: message-v1
+     cloud:
+       config:
+         uri: http://localhost:8888
+     profiles:
+       active: dev
+     redis:
+       timeOfLife: 5000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
